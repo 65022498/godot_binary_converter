@@ -21,7 +21,13 @@ static func ConverBase10To16Base(arg: String) -> String:
 
 #2 -> 10
 static func ConverBase2To10Base(arg: String) -> String:
-	return arg;
+		var length = len(arg) - 1
+	var decimal = 0
+	for x in arg:
+		var bit = x.to_int()
+		decimal += (bit * (2 ** length))  
+		length -= 1          
+	return str(decimal) 
 
 #2 -> 16
 static func ConverBase2To16Base(arg: String) -> String:

@@ -31,11 +31,16 @@ static func ConverBase2To10Base(arg: String) -> String:
 
 #2 -> 16
 static func ConverBase2To16Base(arg: String) -> String:
+	var binaryGroup = len(arg)
+	while binaryGroup % 4 == 0:
+		binaryGroup = binaryGroup / 4
+	binaryGroup = 4 if binaryGroup == 1 else binaryGroup
 	var hex = ""
-	for i in range(0, len(arg), 4):
-		var binary = str(arg.substr(i, 4))  # ดึงเลขฐาน 2 ที่ละกลุ่ม 4 bit
+	for i in range(0, len(arg), binaryGroup):
+		var binary = str(arg.substr(i, binaryGroup))  # ดึงเลขฐาน 2 ที่ละกลุ่ม 4 bit
 		var decimal = Converter.ConverBase2To10Base(binary)
 		hex += Converter.ConverBase10To16Base(decimal)
+		binaryGroup = 4
 	return hex
 
 #16 -> 2

@@ -21,7 +21,7 @@ static func ConverBase10To16Base(arg: String) -> String:
 
 #2 -> 10
 static func ConverBase2To10Base(arg: String) -> String:
-		var length = len(arg) - 1
+	var length = len(arg) - 1
 	var decimal = 0
 	for x in arg:
 		var bit = x.to_int()
@@ -31,7 +31,12 @@ static func ConverBase2To10Base(arg: String) -> String:
 
 #2 -> 16
 static func ConverBase2To16Base(arg: String) -> String:
-	return arg;
+	var hex = ""
+	for i in range(0, len(arg), 4):
+		var binary = str(arg.substr(i, 4))  # ดึงเลขฐาน 2 ที่ละกลุ่ม 4 bit
+		var decimal = Converter.ConverBase2To10Base(binary)
+		hex += Converter.ConverBase10To16Base(decimal)
+	return hex
 
 #16 -> 2
 static func ConverBase16To2Base(arg: String) -> String:

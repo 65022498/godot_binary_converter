@@ -13,7 +13,7 @@ func _on_convert_btn_pressed():
 	print(opt_id)
 	match opt_id:
 		0: #10 -> 2
-			result = Converter.ConvertBase10To2Base(input);
+			result = Converter.ConverBase10To2Base(input);
 		1: #10 -> 16
 			result = Converter.ConverBase10To16Base(input)
 		2: #2 -> 10

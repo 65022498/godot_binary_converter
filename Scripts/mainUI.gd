@@ -11,6 +11,7 @@ func _on_convert_btn_pressed():
 	var input :String = readInput();
 	var result: String;
 	print(opt_id)
+	
 	match opt_id:
 		0: #10 -> 2
 			result = Converter.ConverBase10To2Base(input);
@@ -27,13 +28,17 @@ func _on_convert_btn_pressed():
 		_:
 			return;
 	
-	updateUI(result)
+	updateUI(input,result)
 
 func readInput() -> String:
 	var text = input_le.text
-	input_le.clear()
 	return text;
 
-func updateUI(newStr: String):
-	var temp : String = "Result: {a}"
-	result_l.text = temp.format({"a":newStr});
+func updateUI(text1: String,text2: String):
+	var temp : String = "From: {a}\nTo: {b}"
+	result_l.text = temp.format({"a":text1,"b":text2});
+
+
+func _on_option_obtn_item_selected(index):
+	input_le.clear()
+	result_l.text = "Result:"

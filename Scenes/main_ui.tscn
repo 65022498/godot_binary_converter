@@ -91,4 +91,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Result:"
 
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer2/option_obtn" to="." method="_on_option_obtn_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/convert_btn" to="." method="_on_convert_btn_pressed"]

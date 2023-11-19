@@ -43,14 +43,21 @@ static func ConverBase16To2Base(arg: String) -> String:
 
 # 16 -> 10
 static func ConverBase16To10Base(arg: String) -> String:
-	var decimal = 0
+	for item in arg:
+		match item:
+			"a", "b", "c", "d", "e", "f", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+				print("Character is between \'a\' and \'f\'")
+			_:
+				return "Error! Input is not between \'a\' and \'f\'"
+
+	var decimal =0
 	var length = len(arg) - 1
 	var hexToDec = {
 		'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
 		'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
 	}
 	for i in range(0, len(arg)):
-		var hex = arg.substr(i, 1)
-		decimal += hexToDec[hex] * (16 ** length)
+		var hex : String = arg.substr(i, 1)
+		decimal += hexToDec[hex.to_upper()] * pow(16, length)  # Use pow function for non-integer exponent
 		length -= 1
 	return str(decimal)

@@ -5,6 +5,8 @@ class_name MainUI
 @onready var option_obtn = %option_obtn;
 @onready var result_l = $MarginContainer/VBoxContainer/result_l;
 @onready var input_le = %input_le;
+@onready var open_btn = %openbtn;
+@onready var close_btn = %exitBtn;
 
 func _on_convert_btn_pressed():
 	var opt_id : int = option_obtn.get_selected_id();
@@ -42,3 +44,11 @@ func updateUI(text1: String,text2: String):
 func _on_option_obtn_item_selected(index):
 	input_le.clear()
 	result_l.text = "Result:"
+
+
+func _on_openbtn_pressed():
+	close_btn.get_parent().visible = true;
+
+
+func _on_exit_btn_pressed():
+	close_btn.get_parent().visible = false;

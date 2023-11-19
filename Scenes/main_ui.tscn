@@ -91,5 +91,52 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Result:"
 
+[node name="openbtn" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Credits"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.968627, 0.968627, 0.968627, 1)
+theme_override_font_sizes/font_size = 36
+text = "65022498 ณัฐวุฒิ ผาสุข
+65022881 สิรดนัยอินกัน
+65022904 สุธี จันทร์ขาว
+65022645 ภวิศ ลือเรือง
+65022814 วิทวัฒน์ ดิษฐศรี
+65025985 อภิรักษ์ คงมี"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="exitBtn" type="Button" parent="MarginContainer/ColorRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "X"
+
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer2/option_obtn" to="." method="_on_option_obtn_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/convert_btn" to="." method="_on_convert_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/openbtn" to="." method="_on_openbtn_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/exitBtn" to="." method="_on_exit_btn_pressed"]
